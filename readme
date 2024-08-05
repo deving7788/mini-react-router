@@ -1,0 +1,37 @@
+import {Router, setBaseURL} from "./router.jsx";
+
+setBaseURL("http://localhost:5000");
+
+function App() {
+
+  const myRoutes = [
+    {path: "/",
+     component: <SharedPage/>,
+     children: [
+       {path: "/", component: <Home/>,},
+       {path: "/products", component: <Products/>,},
+       {path: "/about", component: <About/>,},
+       {path: "/contact", component: <Contact/>,},
+       
+     ],},
+     {path: "/*", component: <ErrorPage/>,},
+  ];
+
+  return (
+    <Router routes={myRoutes}/>;
+  )
+
+}
+
+//Note: 
+//Place router.jsx somewhere in your project directory.
+//path, component, children, *(error page path), and routes as well as TheNested, Link, and redirectTo are reserved words. 
+//Usage for TheNested, Link, and redirectTo is shown as following: 
+//In SharedPage.jsx component, import TheNested from router.jsx and use it as <TheNested/>, so as to show all its children. For instance, assuming it has a navbar and a footer, then 
+      <Navbar/>
+      <TheNested/>
+      <Footer/>
+//In any components or pages, you can import Link and redirectTo from router.jsx. 
+//The former is used like this, <Link to="/about" className="about-link">Go to about page</Link> 
+//redirectTo is used to redirect to another page. It must be placed in event handler functions or be put in useEffect, as it triggers component rerendering.
+//setBaseURL is used to align browser url. Just feed hostname into it, so that browser url changes correctly.
