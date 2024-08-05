@@ -33,5 +33,5 @@ function App() {
       <Footer/>
 //In any components or pages, you can import Link and redirectTo from router.jsx. 
 //The former is used like this, <Link to="/about" className="about-link">Go to about page</Link> 
-//redirectTo is used to redirect to another page. It must be placed in event handler functions or be put in useEffect, as it triggers component rerendering.
+//redirectTo is used to redirect to another page. It must be placed in event handler functions or be put in useEffect, as it triggers component rerender.
 //setBaseURL is used to align browser url. Just feed hostname into it, so that browser url changes correctly.
